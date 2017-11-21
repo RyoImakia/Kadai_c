@@ -1,38 +1,38 @@
-#include <stdio.h>
+##include <stdio.h>
 
 int Sum(int a, int b, int c){
 
-    int sum = a+b+c;
+    int sumSub = a+b+c;
 
-    return sum;
+    return sumSub;
 }
 
 int Avarage(int a, int b,int c){
 
-    int avarage = (a+b+c)/3;
-    return avarage;
+    int avarageSub = (a+b+c)/3;
+    return avarageSub;
 }
 
 int main(void){
 
-    int kokugo,rika,syakai,s,a;
-    const char str[] = "の点数を入力してください :";
-    const char subject_1[] =  "国語";
-    const char subject_2[] =  "理科";
-    const char subject_3[] =  "社会";
+    int subjectLn, subjectScience ,subjectSociety ,subjectSum ,subjectAvarage;
+    const char strText[] = "の点数を入力してください :";
+    const char subjectTextLn[] =  "国語";
+    const char subjectTextScience[] =  "理科";
+    const char subjectTextSociety[] =  "社会";
 
-    printf("%s%s",subject_1, str);
-    fflush(stdout); scanf("%d\n", &kokugo);
+    printf("%s%s",subjectTextLn, strText);
+    fflush(stdout); scanf("%d\n", &subjectLn);
 
-    printf("%s%s",subject_2, str);
-    scanf("%d\n", &rika);
+    printf("%s%s",subjectTextScience , strText);
+    scanf("%d\n", &subjectScience);
 
-    printf("%s%s",subject_3, str);
-    scanf("%d\n", &syakai);
+    printf("%s%s",subjectTextSociety, strText);
+    scanf("%d\n", &subjectSociety);
 
-    s = Sum(kokugo,rika,syakai);
-    a = Avarage(kokugo, rika, syakai);
+    subjectSum = Sum(subjectLn ,subjectScience ,subjectSociety);
+    subjectAvarage = Avarage(subjectLn, subjectScience, subjectSociety);
 
-    printf("合計:%d ",s);
-    printf("平均;%d",a);
+    printf("合計: %d, ",subjectSum);
+    printf("平均: %d",subjectAvarage);
 }
