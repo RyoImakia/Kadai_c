@@ -21,8 +21,8 @@ int main(void){
 	int unitPrice, quantity, totalPrice, taxIncludedPrice;
 	const char unitPriceText[] = "単価を入力してください :";
 	const char quantityText[] = "数量を入力してください :";
-	const char totalText[]        = "金額 :";
-	const char priceIncludedText[]        = "税込み金額 :";
+	const char totalText[] = "金額 :";
+	const char priceIncludedText[] = "税込み金額 :";
 
 	printf("%s", unitPriceText);
 	scanf("%d", &unitPrice);
