@@ -16,10 +16,10 @@ int Avarage(int a, int b,int c){
 int main(void){
 
     int subjectLn, subjectScience ,subjectSociety ,subjectSum ,subjectAvarage;
-    const char strText[] = "‚Ì“_”‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢ :";
-    const char subjectTextLn[] =  "‘Œê";
-    const char subjectTextScience[] =  "—‰È";
-    const char subjectTextSociety[] =  "Ğ‰ï";
+    const char strText[] = "ã®ç‚¹æ•°ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ :";
+    const char subjectTextLn[] =  "å›½èª";
+    const char subjectTextScience[] =  "ç†ç§‘";
+    const char subjectTextSociety[] =  "ç¤¾ä¼š";
 
     printf("%s%s",subjectTextLn, strText);
     fflush(stdout); scanf("%d\n", &subjectLn);
@@ -33,6 +33,6 @@ int main(void){
     subjectSum = Sum(subjectLn ,subjectScience ,subjectSociety);
     subjectAvarage = Avarage(subjectLn, subjectScience, subjectSociety);
 
-    printf("‡Œv: %d, •½‹Ï: %d",subjectSum ,subjectAvarage);
- 
+    printf("åˆè¨ˆ: %d, å¹³å‡: %d",subjectSum ,subjectAvarage);
+
 }
