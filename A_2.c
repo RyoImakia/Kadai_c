@@ -18,21 +18,20 @@ int TaxIncludedPrice(int unitPrice, int quantity){
 
 int main(void){
 
-	int unitPriceEnter, quantityEnter, returnTotalPrice, returnPriceIncluded;
+	int unitPrice, quantity, totalPrice, taxIncludedPrice;
 	const char unitPriceText[] = "単価を入力してください :";
 	const char quantityText[] = "数量を入力してください :";
 	const char totalText[]        = "金額 :";
 	const char priceIncludedText[]        = "税込み金額 :";
 
 	printf("%s", unitPriceText);
-	scanf("%d", &unitPriceEnter);
+	scanf("%d", &unitPrice);
 
 	printf("%s", quantityText);
-	scanf("%d", &quantityEnter);
+	scanf("%d", &quantity);
 
-	returnTotalPrice = TotalPrice(unitPriceEnter, quantityEnter);
-	returnTaxIncludedPrice = TaxIncludedPrice(unitPriceEnter, quantityEnter);
+	totalPrice = TotalPrice(unitPrice, quantity);
+	taxIncludedPrice = TaxIncludedPrice(unitPrice, quantity);
 
-	printf("%s :%d %s :%d\n",totalText, returnTotalPrice, priceIncludedText, returnTaxIncludedPrice);
-
+	printf("%s :%d %s :%d\n",totalText, totalPrice, priceIncludedText, taxIncludedPrice);
 }
