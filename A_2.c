@@ -1,37 +1,38 @@
 #include <stdio.h>
 
-int CalculationSum(int b, int q){
+int totalPrice(int b, int q){
 
-	int sum = b * q;
-	return sum;
+	int total = b * q;
+	return total;
 }
 
-int CalculationTax(int b, int q){
+int priceIncluded(int b, int q){
 
-	int sum = b * q;
-	int tax = sum * 0.08;
+	int total = b * q;
+	int tax = total * 0.08;
+	int priceInciuded = sum + tax;
 
-	return tax;
+	return sumTax;
 }
 
 
 int main(void){
 
-	int b, q, s, t;
-	const char bidText[]      = "単価を入力してください";
-	const char quantityText[] = "数量を入力してください";
-	const char sumText[]        = "合計";
-	const char taxText[]        = "税込み金額";
+	int bidEnter, quantityEnter, returnTotal, returnPriceIncluded;
+	const char bidText[]      = "単価を入力してください :";
+	const char quantityText[] = "数量を入力してください :";
+	const char totalText[]        = "金額 :";
+	const char priceIncludedText[]        = "税込み金額 :";
 
 	printf("%s", bidText);
-	scanf("%d", &b);
+	scanf("%d", &bidEnter);
 
 	printf("%s", quantityText);
-	scanf("%d", &q);
+	scanf("%d", &quantityEnter);
 
-	s = CalculationSum(b, q);
-	t = CalculationTax(b, q);
+	returnTotal = totalPrice(b, q);
+	returnPriceIncluded = priceIncluded(b, q);
 
-	printf("%s :%d %s :%d\n",sumText, s, taxText, s + t);
+	printf("%s :%d %s :%d\n",totalText, returnTotal, priceIncludedText, returnPriceIncluded);
 
 }
