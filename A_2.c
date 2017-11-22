@@ -21,17 +21,17 @@ int main(void){
 	int unitPrice, quantity, totalPrice, taxIncludedPrice;
 	const char unitPriceText[] = "単価を入力してください :";
 	const char quantityText[] = "数量を入力してください :";
-	const char totalText[] = "金額 :";
-	const char priceIncludedText[] = "税込み金額 :";
+	const char totalText[] = "金額:";
+	const char priceIncludedText[] = "税込金額:";
 
 	printf("%s", unitPriceText);
-	scanf("%d", &unitPrice);
+	fflush(stdout); scanf("%d", &unitPrice);
 
 	printf("%s", quantityText);
-	scanf("%d", &quantity);
+	fflush(stdout); scanf("%d", &quantity);
 
 	totalPrice = TotalPrice(unitPrice, quantity);
 	taxIncludedPrice = TaxIncludedPrice(unitPrice, quantity);
 
-	printf("%s :%d %s :%d\n",totalText, totalPrice, priceIncludedText, taxIncludedPrice);
+	printf("%s %d %s %d\n",totalText, totalPrice, priceIncludedText, taxIncludedPrice);
 }
