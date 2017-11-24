@@ -8,29 +8,24 @@ int main (void){
 	const char a = 'A';
 	const char b = 'B';
 	const char c = 'C';
-	char answer = 'x';
 	int score;
 
 	printf("%s", scoreText); fflush(stdout); scanf("%d", &score);
 	puts("");
 
 	if(score >= 80 && score <= 100){
-		answer = a;
-		
+		printf("%c%s", a, judgmentText);
+
 	}
 	else if(score <= 79 && score >= 60){
-		answer = b;
-		
+		printf("%c%s", b, judgmentText);
+
 	}
 	else if(score <= 59 && score >= 0){
-		answer = c;
-		
-	}
+		printf("%c%s", c, judgmentText);
 
-	if(answer == 'x'){
-		printf("%s", injusticeText);
 	}else{
-		printf("%c%s", answer, judgmentText);
-
+		printf("%s", injusticeText);
 	}
+
 }
