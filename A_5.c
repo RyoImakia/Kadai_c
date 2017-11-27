@@ -2,16 +2,16 @@
 #include<stdlib.h>
 #include<string.h>
 
-	typedef struct{
+typedef struct{
 
-		char name[10];
-		int point;
+	char name[10];
+	int point;
 
-	}hyuman;
+}man;
 
 int main(void){
 
-	hyuman kino, kuno = {'\0', 0};
+	man kino, kuno = {'\0', 0};
 
 	const char nameText[] = "名前、";
 	const char pointText[] = "点数を入力してください :";
@@ -53,12 +53,13 @@ int main(void){
 	kuno.point = atoi(kunoCp);
 
 
-	if(kino.point > kuno.point){
-		printf("%s%s\n", kino.name, winText);
-	}else if(kuno.point > kino.point){
-		printf("%s%s\n", kuno.name, winText);
-	}else{
+	if(kino.point == kuno.point){
 		printf("%s\n", drawText);
+	}else if(kino.point > kuno.point){
+		printf("%s%s\n", kino.name, winText);
+	}else{
+		printf("%s%s\n", kuno.name, winText);
+
 	}
 
 }
