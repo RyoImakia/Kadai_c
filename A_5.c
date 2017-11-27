@@ -11,22 +11,22 @@
 
 int main(void){
 
-	hyuman kino, kuno;
+	hyuman kino, kuno = {'\0', 0};
 
 	const char nameText[] = "名前、";
 	const char pointText[] = "点数を入力してください :";
 	const char winText[] = "の勝ち";
 	const char drawText[] = "引き分け";
 
-	char kinoArray[10], kinoCp[10];
-	char kunoArray[10], kunoCp[10];
+	char kinoArray[10], kinoCp[10] ;
+	char kunoArray[10], kunoCp[10] ;
 	char kanma[] = ",";
 	int kinoArraySize, kunoArraySize;
 	char *kinoKanmaPosition, *kunoKanmaPosition;
 
 	//テキスト表示と標準入力の実行
 	printf("%s%s", nameText, pointText);
-	fflush(stdout); fgets(kinoArray, sizeof(kinoArray), stdin);
+	fgets(kinoArray, sizeof(kinoArray), stdin);
 
 	//構造体 "kino"
 	kinoKanmaPosition = strstr(kinoArray, kanma);
@@ -40,18 +40,17 @@ int main(void){
 
 	//テキスト表示と標準入力の実行
 	printf("%s%s", nameText, pointText);
-	fflush(stdout); fgets(kunoArray, sizeof(kunoArray), stdin);
+	fgets(kunoArray, sizeof(kunoArray), stdin);
 
 	//構造体 "kuno"
 	kunoKanmaPosition = strstr(kunoArray, kanma);
 	kunoArraySize = sizeof(kunoArray) / sizeof(kunoArray[0]);
 
+
 	strncpy(kunoCp, kunoArray + (kunoArraySize - (kunoKanmaPosition - kunoArray)), 1);
 	strncpy(kuno.name, kunoArray, kunoKanmaPosition - kunoArray);
 
 	kuno.point = atoi(kunoCp);
-
-
 
 
 	if(kino.point > kuno.point){
