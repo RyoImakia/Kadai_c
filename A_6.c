@@ -11,7 +11,8 @@ int main(void){
 	const int classIfiCationTwoPrice = 1000;
 	const int classIfiCationThreePrice = 1500;
 
-	int oneWard, twoWard, threeWard, sum = 0;
+	int oneWard, twoWard, threeWard;
+	int sum = 0;
 
 	printf("%s", classIfiCationOne); scanf("%d", &oneWard);
 	printf("%s", classIfiCationTwo); scanf("%d", &twoWard);
