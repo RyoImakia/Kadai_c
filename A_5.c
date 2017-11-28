@@ -9,7 +9,7 @@ typedef struct{
 
 }Man;
 
-void ArrayUnplug(Man *proxyStructure, char *proxyCase){
+void CaseExcerpt(Man *proxyStructure, char *proxyCase){
 
 	char comma[] = ",";
 
@@ -46,14 +46,14 @@ int main(void){
 	printf("%s%s", nameText, pointText);
 	fflush(stdout); fgets(kinoCase, sizeof(kinoCase), stdin);
 	//関数に構造体 "kuno"と標準入力の配列のアドレスを渡す
-	ArrayUnplug(&kino, &kinoCase);
+	CaseExcerpt(&kino, &kinoCase);
 
 
 	//テキスト表示と標準入力の実行
 	printf("%s%s", nameText, pointText);
 	fflush(stdout); fgets(kunoCase, sizeof(kunoCase), stdin);
 	//関数に構造体 "kino"と標準入力の配列のアドレスを渡す
-	ArrayUnplug(&kuno, &kunoCase);
+	CaseExcerpt(&kuno, &kunoCase);
 
 
 	if(kino.point == kuno.point){
