@@ -6,27 +6,28 @@ typedef struct{
 	char name[10];
 	int  point;
 
+
 }Man;
 
-void ExtractString(Man *man, char *String){
+void ToPullOutString(Man *man, char *String){
 
 	char comma[] = ",";
 
 	char *commaPosition;
-	char caseCopy[10];
-	int caseSize;
+	char StringCopy[10];
+	int StringSize;
 
 
 	commaPosition = strstr(String, comma);
-	caseSize = sizeof(String) / sizeof(String[0]);
+	StringSize = sizeof(String) / sizeof(String[0]);
 
 	//caseSize = "8", commaPosition = "4", 数値はカンマの手前("4")から空白を挟んで二つ右なので最後に"+2"
-	strncpy(caseCopy, String + (caseSize - (commaPosition - String) + 2), 1);
+	strncpy(StringCopy, String + (StringSize - (commaPosition - String) + 2), 1);
 
 	//名前は配列先頭アドレスからカンマの手前("4")まで必要
 	strncpy(man->name, String, commaPosition - String);
 
-	man->point = atoi(caseCopy);
+	man->point = atoi(StringCopy);
 
 }
 
@@ -44,16 +45,16 @@ int main(void){
 
 	//テキスト表示と標準入力の実行
 	printf("%s%s", nameText, pointText);
-	fgets(kinoString, sizeof(kinoString), stdin);
+	fflush(stdout); fgets(kinoString, sizeof(kinoString), stdin);
 	//関数に構造体 "kuno"と標準入力の配列のアドレスを渡す
-	ExtractString(&kino, &kinoString);
+	ToPullOutString(&kino, &kinoString);
 
 
 	//テキスト表示と標準入力の実行
 	printf("%s%s", nameText, pointText);
-	fgets(kunoString, sizeof(kunoString), stdin);
+	fflush(stdout); fgets(kunoString, sizeof(kunoString), stdin);
 	//関数に構造体 "kino"と標準入力の配列のアドレスを渡す
-	ExtractString(&kuno, &kunoString);
+	ToPullOutString(&kuno, &kunoString);
 
 
 	if(kino.point == kuno.point){
