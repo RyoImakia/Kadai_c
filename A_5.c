@@ -6,10 +6,9 @@ typedef struct{
 	char name[10];
 	int  point;
 
-
 }Man;
 
-void CaseExcerpt(Man *proxyStructure, char *proxyCase){
+void ExtractString(Man *man, char *String){
 
 	char comma[] = ",";
 
@@ -18,42 +17,43 @@ void CaseExcerpt(Man *proxyStructure, char *proxyCase){
 	int caseSize;
 
 
-	commaPosition = strstr(proxyCase, comma);
-	caseSize = sizeof(proxyCase) / sizeof(proxyCase[0]);
+	commaPosition = strstr(String, comma);
+	caseSize = sizeof(String) / sizeof(String[0]);
 
 	//caseSize = "8", commaPosition = "4", 数値はカンマの手前("4")から空白を挟んで二つ右なので最後に"+2"
-	strncpy(caseCopy, proxyCase + (caseSize - (commaPosition - proxyCase) + 2), 1);
+	strncpy(caseCopy, String + (caseSize - (commaPosition - String) + 2), 1);
 
 	//名前は配列先頭アドレスからカンマの手前("4")まで必要
-	strncpy(proxyStructure->name, proxyCase, commaPosition - proxyCase);
+	strncpy(man->name, String, commaPosition - String);
 
-	proxyStructure->point = atoi(caseCopy);
+	man->point = atoi(caseCopy);
 
 }
 
 int main(void){
 
-	Man kino, kuno = {{'\0'}, 0};
+	Man kino =  {{'\0'}, 0};
+	Man kuno = {{'\0'}, 0};
 
 	const char nameText[] = "名前、";
 	const char pointText[] = "点数を入力してください :";
 	const char winText[] = "の勝ち: ";
 	const char drawText[] = "引き分け: ";
 
-	char kinoCase[10], kunoCase[10];
+	char kinoString[10], kunoString[10];
 
 	//テキスト表示と標準入力の実行
 	printf("%s%s", nameText, pointText);
-	fflush(stdout); fgets(kinoCase, sizeof(kinoCase), stdin);
+	fgets(kinoString, sizeof(kinoString), stdin);
 	//関数に構造体 "kuno"と標準入力の配列のアドレスを渡す
-	CaseExcerpt(&kino, &kinoCase);
+	ExtractString(&kino, &kinoString);
 
 
 	//テキスト表示と標準入力の実行
 	printf("%s%s", nameText, pointText);
-	fflush(stdout); fgets(kunoCase, sizeof(kunoCase), stdin);
+	fgets(kunoString, sizeof(kunoString), stdin);
 	//関数に構造体 "kino"と標準入力の配列のアドレスを渡す
-	CaseExcerpt(&kuno, &kunoCase);
+	ExtractString(&kuno, &kunoString);
 
 
 	if(kino.point == kuno.point){
