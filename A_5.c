@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct{
 
@@ -43,14 +44,14 @@ int main(void){
 	printf("%s%s", nameText, pointText);
 	fflush(stdout); fgets(inputStringKino, sizeof(inputStringKino), stdin);
 	//関数に構造体 "kuno"と標準入力の配列のアドレスを渡す
-	ParserString(&inputStringKino, &kino);
+	ParserString(inputStringKino, &kino);
 
 
 	//テキスト表示と標準入力の実行
 	printf("%s%s", nameText, pointText);
 	fflush(stdout); fgets(inputStringKuno, sizeof(inputStringKuno), stdin);
 	//関数に構造体 "kino"と標準入力の配列のアドレスを渡す
-	ParserString(&inputStringKuno, &kuno);
+	ParserString(inputStringKuno, &kuno);
 
 
 	if(kino.point == kuno.point){
