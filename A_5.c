@@ -36,18 +36,19 @@ int main(void){
 	const char winText[] = "の勝ち: ";
 	const char drawText[] = "引き分け: ";
 
-	char inputStringKino[10], inputStringKuno[10];
+	char inputStringKino[10] = {'\0'};
+	char inputStringKuno[10] = {'\0'};
 
 	//テキスト表示と標準入力の実行
 	printf("%s%s", nameText, pointText);
-	fgets(inputStringKino, sizeof(inputStringKino), stdin);
+	fflush(stdout); fgets(inputStringKino, sizeof(inputStringKino), stdin);
 	//関数に構造体 "kuno"と標準入力の配列のアドレスを渡す
 	ParserString(&inputStringKino, &kino);
 
 
 	//テキスト表示と標準入力の実行
 	printf("%s%s", nameText, pointText);
-	fgets(inputStringKuno, sizeof(inputStringKuno), stdin);
+	fflush(stdout); fgets(inputStringKuno, sizeof(inputStringKuno), stdin);
 	//関数に構造体 "kino"と標準入力の配列のアドレスを渡す
 	ParserString(&inputStringKuno, &kuno);
 
