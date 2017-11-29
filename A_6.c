@@ -2,21 +2,21 @@
 
 int main(void){
 
-	const char categoryTextOne[] = "区分1の人数を入力してください: ";
-	const char categoryTextTwo[] = "区分2の人数を入力してください: ";
-	const char categoryTextThree[] = "区分3の人数を入力してください: ";
-	const char priceText[] = "金額: ";
+	const char categoryText[] = "区分";
+	const char inputNumberOfPeopleText[] = "の人数を入力してください: ";
+	const char toltalPriceText[] = "金額: ";
 
-	const int threeCategoryPrice[3] = {800, 1000, 1500};
+	const int threeCategoryPrices[3] = {800, 1000, 1500};
 
-	int threeCategoryInput[3];
+	int threeCategorysInput[3];
 	int sumPrice = 0;
+	int count;
 
-	printf("%s", categoryTextOne); fflush(stdout); scanf("%d", &threeCategoryInput[0]);
-	printf("%s", categoryTextTwo); fflush(stdout); scanf("%d", &threeCategoryInput[1]);
-	printf("%s", categoryTextThree); fflush(stdout); scanf("%d", &threeCategoryInput[2]);
+	for(count = 0; count < 3; count++){
 
-	sumPrice += (threeCategoryPrice[0] * threeCategoryInput[0]) + (threeCategoryPrice[1] * threeCategoryInput[1]) + (threeCategoryPrice[2] * threeCategoryInput[2]);
+		printf("%s%d%s", categoryText ,count + 1 ,inputNumberOfPeopleText); fflush(stdout); scanf("%d", &threeCategorysInput[count]);
+		sumPrice += threeCategoryPrices[count] * threeCategorysInput[count];
+	}
 
-	printf("%s%d\n", priceText, sumPrice);
+	printf("%s%d\n", toltalPriceText, sumPrice);
 }
