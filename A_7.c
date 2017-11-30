@@ -10,7 +10,7 @@ typedef struct{
 
 }DiscountRateSummary;
 
-void ParseString(DiscountRateSummary *value, char *inputString){
+void ParseString(char *inputString, DiscountRateSummary *result){
 
 	char *tempFirstCommaPosition;
 	char *temSecondCommaPosition;
@@ -30,14 +30,13 @@ void ParseString(DiscountRateSummary *value, char *inputString){
 		count++;
 	}
 
-
-	int inputStringElementCount = sizeof(inputString) / sizeof(inputString[0]);
+	
 	tempFirstCommaPosition = strstr(inputString, comma);
 
 
 	//一つ目の値 = 区分取得
 	strncpy(section, inputString, 1);
-	value->section = atoi(section);
+	result->section = atoi(section);
 
 
 	//一つ目のカンマより右側をafterInputStringに格納
@@ -51,13 +50,13 @@ void ParseString(DiscountRateSummary *value, char *inputString){
 
 
 	//二つ目の値 = 単価を取得 = "unitPrice"
-	strncpy(unitPrice, afterInputString, secondCommaPosition );
-	value->unitPrice = atoi(unitPrice);
+	strncpy(unitPrice, afterInputString, secondCommaPosition);
+	result->unitPrice = atoi(unitPrice);
 
 
 	//三つ目の値 = 数量を取得 "quantity"
 	strncpy(quantity, inputString + (firstCommaPosition + secondCommaPosition) + (commaAndBlankSkip * 2), 1);
-	value->quantity = atoi(quantity);
+	result->quantity = atoi(quantity);
 }
 
 int DiscountRateCalculation(DiscountRateSummary *result){
@@ -74,15 +73,15 @@ int DiscountRateCalculation(DiscountRateSummary *result){
 		    break;
 
 	 case 2:
-		   afterDdiscountPrice = result->quantity * (result->unitPrice - (result->unitPrice * discountRateOne));
+		    afterDdiscountPrice = result->quantity * (result->unitPrice - (result->unitPrice * discountRateOne));
 		    break;
 
 	 case 3:
-		   afterDdiscountPrice = result->quantity * (result->unitPrice - (result->unitPrice * discountRateOne));
+		    afterDdiscountPrice = result->quantity * (result->unitPrice - (result->unitPrice * discountRateOne));
 		    break;
 
 	 default:
-		   afterDdiscountPrice = result->unitPrice * result->quantity;
+		    afterDdiscountPrice = result->unitPrice * result->quantity;
 		    break;
 
 	}
@@ -102,7 +101,7 @@ int main(void){
 	printf("%s", threeItemOutputText);
 	fflush(stdout); fgets(inputString, sizeof(inputString), stdin);
 
-	ParseString(&discountRateSummary, inputString);
+	ParseString(inputString, &discountRateSummary);
 
 	resultPrice = DiscountRateCalculation(&discountRateSummary);
 
