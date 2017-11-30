@@ -20,17 +20,14 @@ void ParseString(char *inputString, DiscountRateSummary *result){
 	char unitPrice[10] = {'\0'};
 	char quantity[5] = {'\0'};
 	char afterInputString[15] = {'\0'};
-	int count = 0;
+	int inputStringElementCount = 0;
 	int firstCommaPosition;
 	int secondCommaPosition;
 
 
 	//配列の大きさを取得
-	while(inputString[count] != '\0'){
-		count++;
-	}
+	inputStringElementCount = strlen(inputString);
 
-	
 	tempFirstCommaPosition = strstr(inputString, comma);
 
 
@@ -41,7 +38,7 @@ void ParseString(char *inputString, DiscountRateSummary *result){
 
 	//一つ目のカンマより右側をafterInputStringに格納
 	firstCommaPosition = tempFirstCommaPosition - inputString;
-	strncpy(afterInputString, inputString + firstCommaPosition + commaAndBlankSkip, (count - commaAndBlankSkip - 1) - firstCommaPosition);
+	strncpy(afterInputString, inputString + firstCommaPosition + commaAndBlankSkip, (inputStringElementCount - commaAndBlankSkip) - firstCommaPosition);
 
 
 	//二つ目のカンマの位置を取得
