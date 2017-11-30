@@ -14,11 +14,11 @@ void ParseString(char *inputString, DiscountRateSummary *result){
 
 	char *tempFirstCommaPosition;
 	char *temSecondCommaPosition;
-	char comma[] = ",";
-	int commaAndBlankSkip = 2;
+	const char comma[] = ",";
+	const int commaAndBlankSkip = 2;
 	char section[5] = {'\0'};
 	char unitPrice[10] = {'\0'};
-	char quantity[5] = {'\0'};;
+	char quantity[5] = {'\0'};
 	char afterInputString[15] = {'\0'};
 	int count = 0;
 	int firstCommaPosition;
@@ -62,9 +62,9 @@ void ParseString(char *inputString, DiscountRateSummary *result){
 int DiscountRateCalculation(DiscountRateSummary *result){
 
 	int afterDdiscountPrice;
-	double discountRateOne = 0.05;
-	double discountRateTwo = 0.1;
-	double discountRateThree = 0.15;
+	const double discountRateOne = 0.05;
+	const double discountRateTwo = 0.1;
+	const double discountRateThree = 0.15;
 
 	switch(result->section){
 
